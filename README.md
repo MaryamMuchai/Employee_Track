@@ -1,0 +1,1 @@
+### A Django Project that allows user login and registration and performs CRUD opeartion to Employees List
