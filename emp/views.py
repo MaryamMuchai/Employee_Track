@@ -31,7 +31,7 @@ def edit_emp(request, pk):
         form = EmpForm(request.POST, instance=emp)
         if form.is_valid():
             form.save()
-            return redirect('empl_list')
+            return redirect('emp_list')
 
     context = {
         'emp': emp,

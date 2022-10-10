@@ -19,16 +19,16 @@
             </tr>
         </thead>
         <tbody>
-            {% for emp in employees %}
+            {% for employee in emp %}
                 <tr>
-                    <th scope="row">{{ emp.emp_name }}</th>
-                    <td>{{ emp.emp_dept }}</td>
-                    <td>{{ emp.emp_salary }}</td>
-                    <td>{{ emp.date_join }}</td>
-                    <td>{{ emp.emp_address }}</td>
+                    <th scope="row">{{ employee.emp_name }}</th>
+                    <td>{{ employee.emp_dept }}</td>
+                    <td>{{ employee.emp_salary }}</td>
+                    <td>{{ employee.date_join }}</td>
+                    <td>{{ employee.emp_address }}</td>
                     <td>
-                        <a style="margin-right: 30px;" href="{% url 'edit_emp' emp.id %}">Edit</a>
-                        <a href="{% url 'delete_emp' emp.id %}">Remove</a>
+                        <a style="margin-right: 30px;" href="{% url 'edit_emp' %}">Edit</a>
+                        <a href="{% url 'delete_emp' %}">Remove</a>
                     </td>
                 </tr>
             {% endfor %}
