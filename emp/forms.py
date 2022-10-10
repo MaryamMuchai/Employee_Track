@@ -1,6 +1,10 @@
+from dataclasses import fields
 from django import forms
 from django.forms import ModelForm
 from .models import Emp
+
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 
 
@@ -24,3 +28,17 @@ class EmpForm(ModelForm):
         'emp_address': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Address'}),
 
         }
+
+class RegistrationForm(UserCreationForm):
+    email = forms.EmailField()
+
+    class Meta:
+        model: User
+        fields = ["name","username", "email", "number", "password1","password2"]
+
+    def save (self, commit=True):
+        user = super(RegistrationForm, self).save(commit=False)
+        user.email = self.cleaned_data['email']
+        if commit:
+            user.save()
+            return user
